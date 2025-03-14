@@ -4,9 +4,11 @@ import { getCurrentDay } from '../utils/dateUtils';
 
 interface ScheduleProps {
   subjects: Subject[];
+  onDelete: (subject: Subject) => void;
+  
 }
 
-const Schedule: React.FC<ScheduleProps> = ({ subjects }) => {
+const Schedule: React.FC<ScheduleProps> = ({ subjects, onDelete }) => {
   console.log('Asignaturas recibidas en Schedule:', subjects); // Verifica en la consola
 
   // Agrupar asignaturas por día
@@ -64,6 +66,13 @@ const Schedule: React.FC<ScheduleProps> = ({ subjects }) => {
                           <span className="text-gray-700 font-medium text-xs sm:text-sm">
                             ({subject.startTime} - {subject.endTime})
                           </span>
+                          {/* Botón de eliminar */}
+                          <button
+                            onClick={() => onDelete(subject)}
+                            className="ml-2 text-red-500 hover:text-red-700 text-xs sm:text-sm"
+                          >
+                            Eliminar
+                          </button>
                         </li>
                       ))}
                     </ul>

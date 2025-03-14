@@ -9,3 +9,8 @@ export interface Subject {
     endTime: string;
     day: string;
 }
+
+export interface ScheduleProps {
+    subjects: Subject[];
+    onDelete: (subject: Subject) => void;
+}

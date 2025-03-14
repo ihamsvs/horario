@@ -49,6 +49,21 @@ const Home: React.FC = () => {
     clearLocalStorage();
   };
 
+  // Eliminar asignatura
+  const handleDeleteSubject = (subjectDelete : Subject) => {
+    const updatedSubjects = subjects.filter(
+      (subject) => 
+        subject.name !== subjectDelete.name ||
+        subject.day !== subjectDelete.day ||
+        subject.startTime !== subjectDelete.startTime ||
+        subject.endTime !== subjectDelete.endTime
+    )
+
+    // Actualizar el estado y guardar en localStorage
+    setSubjects(updatedSubjects);
+    saveSubjectsToLocalStorage(updatedSubjects);
+  }
+
   return (
     <div className="p-4 bg-gray-50 min-h-screen flex flex-col items-center">
       {/* Renderizado condicional */}
@@ -80,7 +95,7 @@ const Home: React.FC = () => {
 
             {/* Lista de horarios */}
             <div className="w-full md:w-1/2 lg:w-3/5">
-              <Schedule subjects={subjects} />
+              <Schedule subjects={subjects} onDelete={handleDeleteSubject} />
             </div>
           </div>
         </div>
