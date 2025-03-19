@@ -14,6 +14,7 @@ const SubjectForm: React.FC<SubjectFormProps> = ({ subjects, onSave }) => {
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
   const [day, setDay] = useState('Lunes'); // Valor inicial del día
+  const [room , setRoom] = useState('')
   const [error, setError] = useState('');
 
   // Días de la semana
@@ -22,7 +23,7 @@ const SubjectForm: React.FC<SubjectFormProps> = ({ subjects, onSave }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const newSubject: Subject = { name, startTime, endTime, day };
+    const newSubject: Subject = { name, startTime, endTime, day, room  };
 
     // Validar si hay conflicto
     if (isSubjectConflict(newSubject, subjects)) {
@@ -92,6 +93,19 @@ const SubjectForm: React.FC<SubjectFormProps> = ({ subjects, onSave }) => {
       required
     />
   </div>
+  <div className="mb-3 sm:mb-4">
+        <label htmlFor="room" className="block text-xs sm:text-sm font-bold text-black uppercase mb-1 sm:mb-2">
+          Sala:
+        </label>
+        <input
+          type="text"
+          id="room"
+          value={room}
+          onChange={(e) => setRoom(e.target.value)}
+          className="block w-full px-2 sm:px-3 py-2 border-2 border-black bg-white text-gray-800 transition-all duration-500 ease-in-out focus:border-red-500 focus:outline-none appearance-none"
+          required
+        />
+      </div>
 
   {/* Día */}
   <div className="mb-4 sm:mb-6">

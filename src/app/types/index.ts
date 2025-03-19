@@ -8,6 +8,7 @@ export interface Subject {
     startTime: string;
     endTime: string;
     day: string;
+    room: string;
 }
 
 export interface ScheduleProps {

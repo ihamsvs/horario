@@ -63,9 +63,13 @@ const Schedule: React.FC<ScheduleProps> = ({ subjects, onDelete }) => {
                           className="border-l-4 border-red-500 pl-2 sm:pl-3 py-1 transition-all duration-500 ease-in-out hover:border-blue-500 hover:transform hover:translate-x-1"
                         >
                           <span className="font-bold text-black text-xs sm:text-sm">{subject.name}</span>{' '}
+                          <span className="text-gray-700 text-xs sm:text-sm font-bold">
+                            {" "}{subject.room}
+                          </span>{' '}
                           <span className="text-gray-700 font-medium text-xs sm:text-sm">
                             ({subject.startTime} - {subject.endTime})
                           </span>
+                          
                           {/* Botón de eliminar */}
                           <button
                             onClick={() => onDelete(subject)}
