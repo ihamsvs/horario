@@ -19,4 +19,4 @@ Horario Universitario Online es una aplicación web que permite a los estudiante
 
 ## ✨ Autor
 
-Desarrollado por [Tu Nombre](https://github.com/tu-usuario).
+Desarrollado por ihamsvs.
